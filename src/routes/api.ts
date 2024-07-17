@@ -1,15 +1,9 @@
-import express, { Request, Response} from 'express'
-
+import express, { json, Request, Response} from 'express'
+import {createTerm, deleteTerm, editTerm, getTerm} from '../controllers/terms'
 
 const router = express.Router()
 
 
-router.get("/", (req: Request, res: Response) => {
-    
-
-    res.json({"state": "test"})
-})
-
-
+router.post("/term/create", createTerm)
 
 export default router

@@ -1,12 +1,9 @@
 doctype html
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel='stylesheet', type='text/css', href='/output.css')
-        title= title
-    body 
-    section(class="flex w-full flex-col items-center justify-center h-screen bg-gradient-to-br from-stone-300 via-transparent")
+    include partials/head.pug
+    body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950")
+        include partials/header.pug
+        section(class="flex w-full flex-col items-center justify-center h-screen")
 
-        h1(class="uppercase text-3xl font-semibold font-mono") 404 - page not found   
-        a(href="/" class="p-2 my-6 font-semibold text-lg bg-black text-white rounded-md uppercase hover:bg-white hover:text-black hover:ring-2 hover:ring-black") go to main page 
+            h1(class="uppercase text-3xl font-semibold font-mono") 404 - page not found   
+            a(href="/" class="p-2 my-6 font-semibold text-lg bg-black text-white rounded-md uppercase hover:bg-white hover:text-black hover:ring-2 hover:ring-black") go to main page 
