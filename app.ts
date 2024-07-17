@@ -1,6 +1,6 @@
 require("dotenv").config()
 import express, { Request, Response} from 'express'
-import { db } from './src/db/neon';
+
 
 import api from "./src/routes/api"
 

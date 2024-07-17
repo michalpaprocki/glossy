@@ -9,7 +9,7 @@
     "prettier": "npx prettier . --write",
     "build": "tsc",
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "db:generate": "drizzle-kit generate --dialect=postgresql --schema=src/db/schema.ts --out=./drizzle",
+    "db:generate": "drizzle-kit generate --dialect=postgresql --schema=src/db/schema/* --out=./drizzle",
     "db:migrate": "tsx ./src/db/migrate.ts"
   },
   "author": "",

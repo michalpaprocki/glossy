@@ -3,18 +3,20 @@ import { config } from 'dotenv';
 import { migrate } from 'drizzle-orm/neon-http/migrator';
 import { drizzle } from "drizzle-orm/neon-http"
 import {neon} from "@neondatabase/serverless"
-import * as schema from "./schema"
+import * as schema from './schema/schema'
 
 config({ path: '.env'})
  
 const sql = neon(process.env.DB_URL!)
-const db = drizzle(sql, {schema})
+const db = drizzle(sql, {schema: schema})
 const main = async () =>{
     try {
-        await migrate(db, {migrationsFolder: "drizzle"})
+        await migrate(db, {migrationsFolder: "drizzle", })
         console.log('Migration completed');
+        
     } catch (error) {
-        console.log('Error during moigration:', error)
+        console.log('Error during migration:', error)
+        
         process.exit(1)
     }
 }

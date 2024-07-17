@@ -5,4 +5,20 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel='stylesheet', type='text/css', href='/output.css')
         title= title
-    body 
+        script(type="module", src="/scripts/theme.js") 
+    body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 transition-colors")
+        header 
+            div(class="p-4")
+                button(class="p-2 mx-2 w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button" id="light") 🔆 Light
+                button(class="p-2 mx-2 w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button" id="dark") 🌑 Dark
+
+        section 
+        
+            div(class="w-full flex justify-center") 
+                h1(class="uppercase text-xl font-mono font-semibold p-8") Eve Online Glossary
+            div(class="flex justify-center flex-col")
+                button(class="p-2 mx-2 w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button" id="add_btn") Add
+                 
+            
+        section 
+            div terms

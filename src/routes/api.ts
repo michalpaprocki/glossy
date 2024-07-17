@@ -1,5 +1,5 @@
 import express, { Request, Response} from 'express'
-import { db } from '../db/neon'
+
 
 const router = express.Router()
 
