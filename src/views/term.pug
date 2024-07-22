@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+    include partials/head.pug
+    script(type="module", src="/scripts/add_synonym.js") 
+    body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 transition-colors")
+        include partials/header.pug
+        section(class="flex flex-col w-full items-center")
+            div(class="md:w-[80%] w-full p-8") 
+                h1(class="font-semibold font-mono text-xl py-4")= term.term
+                h2(class="py-2 text-base") definition:
+                p(class="font-mono indent-1 text-sm")= term.definition
+
+                div(class="py-8") 
+                    h2(class="text-sm") synonyms:
+                    ul(class="flex")
+                        for s in term.synonyms
+                            li(class="indent-1 py-2 mx-2")= s.synonym
+                    include partials/add_synonym.pug

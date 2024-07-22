@@ -4,7 +4,9 @@ module.exports = {
   content: ["./src/**/*.pug"],
   theme: {
     extend: {
-      
+      gridTemplateColumns: {
+        repeat: "repeat(auto-fill, minmax(100px, 1fr)) ;"
+      }
     },
   },
   plugins: [],

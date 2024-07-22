@@ -1,0 +1,9 @@
+doctype html
+html(lang="en")
+    include partials/head.pug
+    body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 transition-colors")
+        include partials/header.pug
+        section 
+            include partials/search_form.pug
+            h1(class="text-center text-xl font-semibold py-4") results for: #{term}
+            include partials/terms_list.pug

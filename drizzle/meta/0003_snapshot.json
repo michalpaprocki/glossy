@@ -1,0 +1,99 @@
+{
+  "id": "8e17f94c-0bd6-4d6e-aa06-e91f5f090905",
+  "prevId": "f5773fe2-524b-47a1-a30b-9cad9415faa4",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "synonymSchema.synonyms": {
+      "name": "synonyms",
+      "schema": "synonymSchema",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "synonym": {
+          "name": "synonym",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "term_id": {
+          "name": "term_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "synonyms_synonym_unique": {
+          "name": "synonyms_synonym_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "synonym"
+          ]
+        }
+      }
+    },
+    "termSchema.definitions": {
+      "name": "definitions",
+      "schema": "termSchema",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "term": {
+          "name": "term",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "definition": {
+          "name": "definition",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "synonyms": {
+          "name": "synonyms",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "ARRAY[]::text[]"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "definitions_term_unique": {
+          "name": "definitions_term_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "term"
+          ]
+        }
+      }
+    }
+  },
+  "enums": {},
+  "schemas": {
+    "synonymSchema": "synonymSchema",
+    "termSchema": "termSchema"
+  },
+  "sequences": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

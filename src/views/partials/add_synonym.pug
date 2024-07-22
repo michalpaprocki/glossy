@@ -1,0 +1,5 @@
+div(class="p-4 pt-10") 
+    form(action="/api/synonym/add/"+ term.term method="post" id="add_synonym" name="add_synonym" class="flex flex-col items-center") 
+        label(for="synonym" class="whitespace-nowrap pb-4 text-base") ➕ Add a synonym
+        input(type="text" id="synonym" name="synonym" class=" dark:text-stone-200 dark:bg-stone-950 ring-2 ring-stone-950 dark:ring-stone-200 rounded-md p-2")
+        button(type="submit" id="add_synonym_btn" class="p-2 mt-10 w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap") Add

@@ -1,5 +1,6 @@
 doctype html
 html(lang="en")
+    link(rel='stylesheet', type='text/css', href='/style.css')
     include partials/head.pug
     script(type="module", src="/scripts/add_term.js") 
     body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 min-h-screen") 
@@ -8,10 +9,11 @@ html(lang="en")
 
             form(action="/api/term/create" method="post" id="add_term" name="add_term" class="flex flex-col items-center p-4 bg-slate-300 dark:bg-transparent dark:ring-1 dark:ring-stone-100 rounded-md shadow-lg") 
                 h1(class="uppercase text-xl font-semibold my-6") Add a definition
-                div(class="p-2 sm:flex-row flex items-start flex-col") 
-                    label( class="inline-block p-1 sm:py-2 pb-4 w-[10ch]" for="term") Term
+                div(class="p-2 flex items-start flex-col") 
+                    label( class="inline-block p-1 pb-4 w-[10ch]" for="term") Term
                     input(type="text" class="w-[30ch] rounded-md p-2 text-slate-950 shadow-inner shadow-slate-950 dark:shadow-none" id="term" name="term")
-                div(class="p-2 sm:flex-row flex items-start flex-col") 
-                    label( class="inline-block p-1 sm:py-2 pb-4 w-[10ch]" for="definition") Definition
+                div(class="p-2 flex items-start flex-col mb-6") 
+                    label( class="inline-block p-1 pb-4 w-[10ch]" for="definition") Definition
                     textarea(class="w-[30ch] min-h-[10rem] rounded-md p-2 text-slate-950 shadow-inner shadow-slate-950 dark:shadow-none" name="definition" id="definition")
-                button(class="w-full p-2 mb-6 mt-10 mx-2 font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap uppercase" type="submit" value="Submit") submit
+                span(id="msg-box" class="h-4 w-full flex items-center justify-center")
+                button(class="flex justify-center items-center relative w-full p-2 mb-6 mt-10 mx-2 font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap uppercase" type="submit" value="Submit" id="form_btn") submit

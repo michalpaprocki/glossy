@@ -1,0 +1,30 @@
+* {
+    font-family: monospace;
+}
+.form_error {
+    color:red
+}
+.spinner {
+    border: solid 4px;
+    border-color: white transparent white transparent;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+    animation: spin 1s linear infinite;
+}
+
+.cog {
+    position: absolute;
+    right: 1rem;
+
+    animation: spin 2s linear infinite;
+}
+.show_nav {
+    height: 100%;
+}
+
+@keyframes spin {
+   100% {
+        transform: rotate(360deg);
+    }
+}

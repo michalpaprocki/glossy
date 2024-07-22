@@ -1,0 +1,6 @@
+div(class="flex flex-col md:w-[80%] w-[95%]")
+    for t in terms
+        if(t.term)
+            a(class="w-full mb-2 p-2 font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md" href="/term/get/"+ t.term)= t.term
+        if(t.synonym)
+            a(class="w-full mb-2 p-2 font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md" href="/term/get/"+ t.terms.term)= t.synonym

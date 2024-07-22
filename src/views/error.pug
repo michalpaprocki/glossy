@@ -1,0 +1,9 @@
+doctype html
+html(lang="en")
+    include partials/head.pug
+    body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 transition-colors")
+        include partials/header.pug
+        section(class="mb-20 flex flex-col items-center p-8 pt-20")
+            p(class="my-8")= error
+            
+            include partials/search_form.pug
