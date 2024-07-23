@@ -30,9 +30,9 @@ const createTerm = async (req:Request, res: Response) =>{
     if(term.trim().length === 0 || def.trim().length === 0){
        return res.json({"error": "Form fields can't be empty"}); 
     }
-   
+ 
     try {
-        const resp = await db.insert(terms).values({definition: def.trim(), term: term.trim() })
+        const resp = await db.insert(terms).values({definition: def.trim(), term: term.trim().toLocaleLowerCase() })
         res.json({"info": "Term added."});
     } catch (error) {
         if(error instanceof NeonDbError && error.code === '23505'){
@@ -136,6 +136,15 @@ const purgeTerms = async (req:Request, res: Response) =>{
         res.json({"error": "something went wrong"})
      }
 }
+const purgeSynonyms = async (req:Request, res: Response) =>{
+    try {
+       await db.delete(synonyms)
+        res.json("db purged")
+     } catch (error) {
+        console.log(error)
+        res.json({"error": "something went wrong"})
+     }
+}
 const addSynonymToTerm = async (req:Request, res: Response) =>{
     const term = req.params.term
     const {synonym} = req.body
@@ -174,4 +183,4 @@ const getAllSynonyms = async (req:Request, res: Response) =>{
     const synonymsList = await db.select().from(synonyms)
     res.json(synonymsList)
 }
-export {fourOFour, index, purgeTerms, deleteTermByName, createTerm, getAllTerms, getTermsNames, getTermByName, getTermById, getTermBySynonym, getTermsSynonyms, editTerm, addSynonymToTerm, getAllSynonyms,}
+export {fourOFour, index, deleteTermByName, createTerm, getAllTerms, getTermsNames, getTermByName, getTermById, getTermBySynonym, getTermsSynonyms, editTerm, addSynonymToTerm, getAllSynonyms,}

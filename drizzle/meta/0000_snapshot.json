@@ -1,21 +1,81 @@
 {
-  "id": "c2ee349b-c16b-442e-871e-71f321c709ed",
+  "id": "fcb0ea4f-cea6-43fc-b96c-23d17c107cef",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "keywordSchema.definitions": {
-      "name": "definitions",
-      "schema": "keywordSchema",
+    "synonymSchema.synonyms": {
+      "name": "synonyms",
+      "schema": "synonymSchema",
       "columns": {
         "id": {
           "name": "id",
           "type": "uuid",
           "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "synonym": {
+          "name": "synonym",
+          "type": "text",
+          "primaryKey": false,
           "notNull": true
         },
-        "keyword": {
-          "name": "keyword",
+        "term_id": {
+          "name": "term_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "synonyms_term_id_definitions_id_fk": {
+          "name": "synonyms_term_id_definitions_id_fk",
+          "tableFrom": "synonyms",
+          "tableTo": "definitions",
+          "schemaTo": "termSchema",
+          "columnsFrom": [
+            "term_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "synonyms_synonym_unique": {
+          "name": "synonyms_synonym_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "synonym"
+          ]
+        }
+      }
+    },
+    "termSchema.definitions": {
+      "name": "definitions",
+      "schema": "termSchema",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "term": {
+          "name": "term",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -25,17 +85,31 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "synonyms": {
+          "name": "synonyms",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "ARRAY[]::text[]"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "definitions_keyword_unique": {
-          "name": "definitions_keyword_unique",
+        "definitions_term_unique": {
+          "name": "definitions_term_unique",
           "nullsNotDistinct": false,
           "columns": [
-            "keyword"
+            "term"
           ]
         }
       }
@@ -43,7 +117,8 @@
   },
   "enums": {},
   "schemas": {
-    "keywordSchema": "keywordSchema"
+    "synonymSchema": "synonymSchema",
+    "termSchema": "termSchema"
   },
   "sequences": {},
   "_meta": {

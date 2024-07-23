@@ -7,8 +7,6 @@ import term from "./src/routes/term"
 
 import { db } from './src/db/db';
 import { terms } from './src/db/schema/term';
-import { relations, eq, ilike,or } from 'drizzle-orm';
-import { synonyms } from './src/db/schema/synonym';
 
 
 
@@ -28,9 +26,8 @@ app.use("/api", api)
 app.get("/", async (req: Request, res: Response) => {
   // const termsList = await db.select().from(terms)
 
-  const termsList = await db.select().from(terms).innerJoin(synonyms, eq(terms.id, synonyms.termId))
+  const termsList = await db.select().from(terms).orderBy(terms.term)
 
-console.log(termsList)
   res.render("index", {title: "Home | Eve Glossary", terms: termsList} )
 });
 

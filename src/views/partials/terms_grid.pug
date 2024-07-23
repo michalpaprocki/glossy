@@ -1,5 +1,5 @@
 div(class="flex justify-center")
-    div(class="md:w-[80%] w-[95%] flex flex-col")
+    div(class="md:w-[80%] w-[95%] flex flex-col gap-2")
         for t in terms
             if(t.term)
                 a(class="w-full p-2 font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md" href="/term/get/"+ t.term)= t.term

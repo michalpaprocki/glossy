@@ -45,9 +45,6 @@ const search = async (req: Request, res: Response) => {
         terms: true
       }
     })
-    
-
-    console.log([...results, ...synonymsList])
 
     res.render("search", {title: "Search results | Eve Glossary", terms: [...results, ...synonymsList], term: term} )
     }

@@ -1,1 +1,0 @@
-ALTER TABLE "termSchema"."definitions" RENAME COLUMN "synonymes" TO "synonyms";

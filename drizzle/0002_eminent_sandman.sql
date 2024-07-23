@@ -1,1 +1,0 @@
-ALTER TABLE "termSchema"."definitions" ALTER COLUMN "id" SET DEFAULT gen_random_uuid();

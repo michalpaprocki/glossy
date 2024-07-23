@@ -16,7 +16,7 @@ router.get("/term/synonym/:synonym", getTermBySynonym)
 router.post("/synonym/add/:term", addSynonymToTerm)
 router.get("/synonyms", getAllSynonyms)
 
-// router.get("/term/delete/:name", deleteTermByName)
+router.get("/term/delete/:name", deleteTermByName)
 
 
 router.get("*", fourOFour)
