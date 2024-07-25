@@ -8,4 +8,5 @@ router.get("/get/:term", getTerm);
 router.get("/add", addTerm);
 router.get("/search", search);
 
+
 export default router

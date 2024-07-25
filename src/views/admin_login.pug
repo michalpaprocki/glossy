@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    include partials/head.pug
+    script(type="module", src="/scripts/admin_login.js") 
+    body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 transition-colors")
+        include partials/header.pug
+        section 
+            div(class="p-4 pt-32") 
+                form(action="/admin/login" method="get" id="admin_login" name="admin_login" class="flex flex-col items-center gap-5") 
+                    label(for="login" class="whitespace-nowrap pb-4 text-base") Login
+                    input(type="text" id="login" name="login" class=" dark:text-stone-200 dark:bg-stone-950 ring-2 ring-stone-950 dark:ring-stone-200 rounded-md p-2")
+                    label(for="password" class="whitespace-nowrap pb-4 text-base") Password
+                    input(type="password" id="password" name="password" class=" dark:text-stone-200 dark:bg-stone-950 ring-2 ring-stone-950 dark:ring-stone-200 rounded-md p-2")
+                    span(class="h-8 p-2" id="login_msg")
+                    button(type="submit" id="admin_login_btn" class="flex justify-center items-center relative w-fit p-2 px-10 mb-6 mt-10 mx-2 font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap uppercase") Login

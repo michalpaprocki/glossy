@@ -16,15 +16,85 @@
 .cog {
     position: absolute;
     right: 1rem;
-
     animation: spin 2s linear infinite;
 }
 .show_nav {
-    height: 100%;
+    height: 150%;
+}
+.show_theme {
+    height: 150%;
 }
 
+.burger_top_open {
+    animation: burger_top_open 0.25s ease-in-out forwards;
+}
+.burger_top_close {
+    animation: burger_top_close 0.25s ease-in-out forwards;
+}
+.burger_bottom_open {
+    animation: burger_bottom_open 0.25s ease-in-out forwards;
+}
+.burger_bottom_close {
+    animation: burger_bottom_close 0.25s ease-in-out forwards;
+}
 @keyframes spin {
    100% {
         transform: rotate(360deg);
+    }
+}
+@keyframes burger_top_open {
+    0% {
+        transform: translateY(-0.5rem)
+    }
+    60% {
+        transform: translateY(0.5rem)
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+@keyframes burger_top_close {
+    0% {
+        transform: rotate(45deg);
+        
+    }
+    30% {
+        transform: rotate(0deg);
+        transform: translateY(0.5rem)
+    }
+    30% {
+    
+        transform: translateY(0.5rem),
+    }
+    100% {
+        transform: translateY(-0.5rem)
+    }
+}
+@keyframes burger_bottom_open {
+    0% {
+        transform: translateY(0.5rem)
+    }
+    60% {
+        transform: translateY(-0.5rem)
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+@keyframes burger_bottom_close {
+    0% {
+        transform: rotate(-45deg);
+        
+    }
+    30% {
+        transform: rotate(0deg);
+        transform: translateY(-0.5rem)
+    }
+    30% {
+    
+        transform: translateY(-0.5rem),
+    }
+    100% {
+        transform: translateY(0.5rem)
     }
 }

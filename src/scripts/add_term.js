@@ -40,13 +40,9 @@ const addTerm = async (term, def) => {
             msg_box.classList.add("form_info")
         }
       
-        if(data.error) {
-            if(!errorEl){
+        if(data.error) {  
                 msg_box.innerText = data.error
                 msg_box.classList.add("form_error")
-            } else {
-                errorEl.innerText = data.error
-            }
         }
       
     } catch (error) {

@@ -1,14 +1,30 @@
 header(class="flex items-center gap-4 justify-between relative h-20")
     div(class="p-4")
-        button(class="p-2 mx-2 w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button" id="light") 🔆 Light
-        button(class="p-2 mx-2 w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button" id="dark") 🌑 Dark
+        button(class="md:hidden flex flex-col p-3 rounded-md uppercase hover:bg-slate-500 hover:text-stone-200 font-semibold transition-all" id="theme") theme
+            
+        ul(id="theme_header" class="flex overflow-hidden md:overflow-visible md:relative md:top-0 md:flex-row flex-col absolute md:bg-inherit  md:h-auto h-0 top-20 right-0 w-full transition-all duration-200 bg-stone-950")
+            li
+                button(class="text-slate-950 dark:text-stone-200 p-2 md:mx-2 md:w-[10ch] w-full font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button" id="light") 🌕 Light
+            li
+                button(class="text-slate-950 dark:text-stone-200 p-2 md:mx-2 md:w-[10ch] w-full font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button" id="dark") 🌑 Dark
+            li
+                button(class="text-slate-950 dark:text-stone-200 p-2 md:mx-2 md:w-[10ch] w-full font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button" id="os") 🌗 OS
+       
     nav( class="flex flex-col just p-4")
-        button(class="md:hidden flex flex-col p-2" id="burger")
-            span(class="bg-stone-200 h-1 w-6 -translate-y-1")
-            span(class="bg-stone-200 h-1 w-6 translate-y-0")
-            span(class="bg-stone-200 h-1 w-6 translate-y-1")
+        button(class="group md:hidden flex flex-col p-4 hover:bg-slate-500 hover:text-stone-200 rounded-md transition-all" id="burger")
+            span(class="bg-slate-950 dark:bg-stone-200 h-1 w-6 -translate-y-2 group-hover:bg-stone-200 absolute")
+            span(class="bg-slate-950 dark:bg-stone-200 h-1 w-6 translate-y-0 group-hover:bg-stone-200 transition")
+            span(class="bg-slate-950 dark:bg-stone-200 h-1 w-6 translate-y-2 group-hover:bg-stone-200 absolute")
         ul(id="nav_header" class="flex overflow-hidden md:overflow-visible md:relative md:top-0 md:flex-row flex-col absolute md:bg-inherit  md:h-auto h-0 top-20 right-0 w-full transition-all duration-200 bg-stone-950")
             li
-                a(id="home" href="/" class="w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🏠 Home
+                a(id="home" href="/" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🏠 Home
             li
-                a(id="add" href="/term/add" class="w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") ➕ Add
+                a(id="add" href="/term/add" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") ➕ Add
+            if !user
+                li
+                    a(id="admin" href="/admin" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🛡️ Admin 
+            else
+                li
+                    a(id="logout" href="/logout" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🚪 Logout 
+
+                

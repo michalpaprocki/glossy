@@ -1,13 +1,16 @@
 doctype html
 html(lang="en")
     include partials/head.pug
-    body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 transition-colors")
+    body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 transition-colors min-h-screen")
+        
         include partials/header.pug
         section 
-
-            div(class="w-full flex justify-center") 
-                h1(class="uppercase text-xl font-mono font-semibold p-8") Eve Online Glossary
-            div(class="flex flex-col w-full items-center gap-10")
-                include partials/search_form.pug
-                include partials/terms_grid.pug
-                
+            if error 
+                span(class="w-full flex justify-center mt-20")=error
+            else
+                div(class="w-full flex justify-center") 
+                    h1(class="uppercase text-xl font-mono font-semibold p-8")=topic
+                div(class="flex flex-col w-full items-center gap-10")
+                    include partials/search_form.pug
+                    h2(class="uppercase text-base font-mono font-semibold p-4") Recently added:
+                    include partials/terms_list.pug

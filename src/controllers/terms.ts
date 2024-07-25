@@ -4,6 +4,7 @@ import {eq, exists} from 'drizzle-orm'
 import { terms } from '../db/schema/term'
 import { NeonDbError } from '@neondatabase/serverless'
 import { synonyms } from '../db/schema/synonym'
+import { topic } from '../utils/envImports'
 
 
 const fourOFour = (req:Request, res: Response) => {
@@ -12,7 +13,7 @@ const fourOFour = (req:Request, res: Response) => {
 
 const index = (req:Request, res: Response) => {
     res.json({
-        "title":"Eve Glossary API index",
+        "title":`${topic} API index`,
         "routes": {
             "GET: '/api'":"this index page",
             "GET: /api/terms":"returns all the terms with definitions contained in the db",
@@ -156,7 +157,6 @@ const addSynonymToTerm = async (req:Request, res: Response) =>{
      }
 
      try {
-        //  const resp = await db.insert(terms).values({synonyms: synonym.trim()})
  
         const termQueried = await db.select().from(terms).where(eq(terms.term, term))
         if(termQueried.length === 0)
@@ -167,7 +167,7 @@ const addSynonymToTerm = async (req:Request, res: Response) =>{
             termId: termQueried[0].id,
             synonym: synonym
         })
-        console.log(result)
+
         res.json({"info": "Synonym added."});
      } catch (error) {
          if(error instanceof NeonDbError && error.code === '23505'){

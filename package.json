@@ -1,7 +1,7 @@
 {
-  "name": "eve_glossary",
+  "name": "glossary",
   "version": "0.0.0",
-  "description": "simple rest api providing eve online related glossary ",
+  "description": "rest api providing glossary endpoints and a simple front",
   "main": "app.js",
   "scripts": {
     "test": "vitest",
@@ -10,7 +10,8 @@
     "build": "tsc",
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "db:generate": "drizzle-kit generate --dialect=postgresql --schema=src/db/schema/* --out=./drizzle",
-    "db:migrate": "tsx ./src/db/migrate.ts"
+    "db:migrate": "tsx ./src/db/migrate.ts",
+    "prep": "tsx ./src/db/createAdmin.ts"
   },
   "author": "",
   "license": "ISC",
@@ -29,8 +30,11 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.4",
+    "@types/connect-pg-simple": "^7.0.3",
+    "connect-pg-simple": "^9.0.1",
     "drizzle-orm": "^0.32.0",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "helmet": "^7.1.0",
     "postcss": "^8.4.39",
     "pug": "^3.0.3"
