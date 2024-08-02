@@ -40,12 +40,12 @@ const handleLogin = async () => {
             msg.classList.add('form_error')
         } else {
             msg.innerHTML = data.info
-            window.location.assign(url.slice(0, -6))
+            window.location.assign(window.location.href.slice(0, -6))
         }
 
     } catch (error) {
         if(msg){
-            msg.innerHTML = data.error
+            msg.innerHTML = error
             msg.classList.add('form_error')
         }
         console.log(error)

@@ -1,10 +1,29 @@
 doctype html
 html(lang="en")
     include partials/head.pug
+    script(type="module", src="/scripts/admin_panel.js") 
     body(class="dark:bg-slate-950 dark:text-stone-100 bg-stone-100 text-slate-950 transition-colors")
         include partials/header.pug
-        section(class="w-full flex justify-center mt-20")
+        section(class="w-full flex justify-center md:mt-20")
             div(class="w-[80%]") 
-                div change credentials 
-                div edit terms 
-                div delete terms
+                h1(class="text-xl uppercase text-center py-5 mb-5") admin panel
+                div(class="")
+                    h2(class="text-center p-4 capitalize text-base") change password
+                    form(action="/admin/change_password" method="get" id="admin_change_password" name="admin_change_password" class="flex flex-col items-center gap-5") 
+                        div(class="p-4 flex md:flex-row flex-col justify-center gap-4") 
+                            label(for="old_password" class="whitespace-nowrap pb-4 text-base w-[20ch]") Old Password
+                            div(class="flex gap-2") 
+                                input(type="password" id="old_password" name="old_password" class="dark:text-stone-200 dark:bg-stone-950 ring-2 ring-stone-950 dark:ring-stone-200 rounded-md p-2")
+                                buton(id="visibility_old_password" class="relative w-fit p-2 mx-2 text-sm cursor-pointer font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap") show
+                        div(class="p-4 flex md:flex-row flex-col justify-center gap-4") 
+                            label(for="new_password" class="whitespace-nowrap pb-4 text-base w-[20ch]") New Password
+                            div(class="flex gap-2") 
+                                input(type="password" id="new_password" name="new_password" class="dark:text-stone-200 dark:bg-stone-950 ring-2 ring-stone-950 dark:ring-stone-200 rounded-md p-2")
+                                buton(id="visibility_new_password" class="relative w-fit p-2 mx-2 text-sm cursor-pointer font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap") show
+                        div(class="p-4 flex md:flex-row flex-col justify-center gap-4")
+                            label(for="confirm_password" class="whitespace-nowrap pb-4 text-base w-[20ch]") Confirm Password
+                            div(class="flex gap-2") 
+                                input(type="password" id="confirm_password" name="confirm_password" class="dark:text-stone-200 dark:bg-stone-950 ring-2 ring-stone-950 dark:ring-stone-200 rounded-md p-2")
+                                buton(id="visibility_confirm_password" class="relative w-fit p-2 mx-2 text-sm cursor-pointer font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap") show
+                        span(class="h-8 p-2" id="change_password_msg")
+                        button(type="submit" id="change_password_btn" class="relative w-fit p-2 px-10 mb-6 mt-10 mx-2 font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap uppercase") Submit

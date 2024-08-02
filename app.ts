@@ -65,6 +65,7 @@ app.get("/", async (req: Request, res: Response) => {
 
 app.get("*", (req: Request, res: Response) => {
   const {role, user} = req.session
+
   res.render("not_found", {title: `Not Found | ${title}`, user: {role, user}})
 })
 app.listen(port, () => {

@@ -20,11 +20,11 @@ header(class="flex items-center gap-4 justify-between relative h-20")
                 a(id="home" href="/" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🏠 Home
             li
                 a(id="add" href="/term/add" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") ➕ Add
-            if !user
+            if user.user === undefined
                 li
                     a(id="admin" href="/admin" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🛡️ Admin 
             else
                 li
-                    a(id="logout" href="/logout" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🚪 Logout 
-
-                
+                    a(id="admin" href="/admin" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🛡️ Admin 
+                li
+                    a(id="logout" href="/admin/logout" class="text-slate-950 dark:text-stone-200 w-full flex justify-center p-2 md:mx-2 md:w-[10ch] font-semibold font-mono hover:bg-slate-500 hover:text-stone-200 rounded-md select-none whitespace-nowrap" type="button") 🚪 Logout 
